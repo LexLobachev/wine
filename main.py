@@ -19,10 +19,11 @@ def main():
             (age_to == 111) and 'лет' or
             (1 in (age_to, (last_dig := age_to % 10))) and 'год' or
             ({age_to, last_dig} & {2, 3, 4}) and 'года' or 'лет')
-    dif_years = datetime.date.today().year - 1920
+    foundation_year = 1920
+    dif_years = datetime.date.today().year - foundation_year
 
     excel_data_df = pandas.read_excel('wine3.xlsx', sheet_name='Лист1')
-    all_liquids = excel_data_df.fillna('').groupby(['Категория'], sort=False)\
+    all_liquids = excel_data_df.fillna('').groupby(['Категория'], sort=False) \
         .apply(lambda x: x.to_dict(orient='records')).to_dict()
 
     rendered_page = template.render(
