@@ -18,6 +18,7 @@ $ source venv/bin/activate
 ```bash
 $ pip3 install -r requirements.txt
 ```
+- Можете изменить данные по товарам на свои, для этого в файле `wine3.xlsx` совершите необходимые правки
 
 ## Запуск
 
