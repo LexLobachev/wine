@@ -117,11 +117,11 @@
         </div>
       </div>
       <div class="row">
-        {% for category_names in all_liquids%}
+        {% for category_name in all_liquids%}
           <div class="col-12 section-title text-center mb-5">
-            <h2 class="d-block">{{category_names}}</h2>
+            <h2 class="d-block">{{category_name}}</h2>
             <div class="row">
-              {% for item in all_liquids[category_names] %}
+              {% for item in all_liquids[category_name] %}
                 <div class="col-lg-4 mb-5 col-md-6">
                   <div class="wine_v_1 text-center pb-4 pt-5">
                     <img src="images/{{item.Картинка}}" alt="Image" class="img-fluid">
