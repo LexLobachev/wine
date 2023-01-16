@@ -6,6 +6,18 @@ import datetime
 import pandas
 
 
+def age_token(age_to):
+    literate_year = 'лет'
+    last_dig = age_to % 10
+    if age_to in range(5, 20) or age_to == 111:
+        literate_year = 'лет'
+    elif 1 in (age_to, last_dig):
+        literate_year = 'год'
+    elif {age_to, last_dig} & {2, 3, 4}:
+        literate_year = 'года'
+    return f'{literate_year}'
+
+
 def main():
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -14,11 +26,6 @@ def main():
 
     template = env.get_template('template.html')
 
-    age_token = lambda age_to: (
-            (age_to in range(5, 20)) and 'лет' or
-            (age_to == 111) and 'лет' or
-            (1 in (age_to, (last_dig := age_to % 10))) and 'год' or
-            ({age_to, last_dig} & {2, 3, 4}) and 'года' or 'лет')
     foundation_year = 1920
     dif_years = datetime.date.today().year - foundation_year
 
