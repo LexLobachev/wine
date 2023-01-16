@@ -22,7 +22,7 @@ def main():
     foundation_year = 1920
     dif_years = datetime.date.today().year - foundation_year
 
-    excel_data_df = pandas.read_excel('wine3.xlsx', sheet_name='Лист1')
+    excel_data_df = pandas.read_excel('goods_datatable.xlsx', sheet_name='Лист1')
     all_liquids = excel_data_df.fillna('').groupby(['Категория'], sort=False) \
         .apply(lambda x: x.to_dict(orient='records')).to_dict()
 
