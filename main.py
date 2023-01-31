@@ -6,7 +6,7 @@ import datetime
 import pandas
 
 
-def age_token(age_to):
+def set_age_token(age_to):
     literate_year = 'лет'
     last_dig = age_to % 10
     if age_to in range(5, 20) or age_to == 111:
@@ -35,7 +35,7 @@ def main():
 
     rendered_page = template.render(
         count_of_years=dif_years,
-        correct_russian_year=age_token(dif_years),
+        correct_russian_year=set_age_token(dif_years),
         all_liquids=all_liquids,
     )
 
