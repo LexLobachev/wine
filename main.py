@@ -15,7 +15,7 @@ def set_age_token(age_to):
         literate_year = 'год'
     elif {age_to, last_dig} & {2, 3, 4}:
         literate_year = 'года'
-    return f'{literate_year}'
+    return literate_year
 
 
 def main():
