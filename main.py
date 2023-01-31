@@ -1,9 +1,10 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from dotenv import load_dotenv
 
 import datetime
 import pandas
+import os
 
 
 def set_age_token(age_to):
@@ -18,7 +19,7 @@ def set_age_token(age_to):
     return literate_year
 
 
-def main():
+def main(file_name, sheet_name):
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
@@ -29,7 +30,7 @@ def main():
     foundation_year = 1920
     dif_years = datetime.date.today().year - foundation_year
 
-    excel_data_df = pandas.read_excel('goods_datatable.xlsx', sheet_name='Лист1')
+    excel_data_df = pandas.read_excel(file_name, sheet_name=sheet_name)
     all_liquids = excel_data_df.fillna('').groupby(['Категория'], sort=False) \
         .apply(lambda x: x.to_dict(orient='records')).to_dict()
 
@@ -47,4 +48,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    load_dotenv()
+    file_name = os.environ.get("FILE_NAME")
+    sheet_name = os.environ.get("SHEET_NAME")
+    main(file_name, sheet_name)
