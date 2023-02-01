@@ -19,7 +19,10 @@ def set_age_token(age_to):
     return literate_year
 
 
-def main(file_name, sheet_name):
+def main():
+    load_dotenv()
+    file_name = os.environ.get("FILE_NAME")
+    sheet_name = os.environ.get("SHEET_NAME")
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html', 'xml'])
@@ -48,7 +51,4 @@ def main(file_name, sheet_name):
 
 
 if __name__ == '__main__':
-    load_dotenv()
-    file_name = os.environ.get("FILE_NAME")
-    sheet_name = os.environ.get("SHEET_NAME")
-    main(file_name, sheet_name)
+    main()
