@@ -21,7 +21,7 @@ def set_age_token(age_to):
 
 def main():
     load_dotenv()
-    file_name = os.environ.get("FILE_NAME")
+    file_name = os.environ.get("FILE_PATH")
     sheet_name = os.environ.get("SHEET_NAME")
     env = Environment(
         loader=FileSystemLoader('.'),

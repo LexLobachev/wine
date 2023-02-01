@@ -22,7 +22,7 @@ $ pip3 install -r requirements.txt
 
 ### Переменные окружения
 
-- FILE_NAME
+- FILE_PATH
 - SHEET_NAME
 
 1. Cоздайте `.env` файл рядом с `requirements.txt`.
@@ -32,7 +32,7 @@ $ pip3 install -r requirements.txt
 
 ```bash
 $ cat .env
-FILE_NAME=goods_datatable.xlsx
+FILE_PATH=/goods_datatable.xlsx
 SHEET_NAME=Лист1
 ```
 
